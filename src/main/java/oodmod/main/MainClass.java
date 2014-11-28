@@ -60,6 +60,9 @@ public class MainClass {
 	@EventHandler
 	public void Init(FMLInitializationEvent Event){
 		
+		// Register Models
+		proxy.registerModels();
+		
 		//Achievements
 		achievementKroostyl = new Achievement("achievement.MineKroostyl", "MineKroostyl", 0, 0, BlockClass.KroostylOre, AchievementList.diamonds).func_180788_c();
 		achievementKroostylPick = new Achievement("achievement.KroostylPick", "KroostylPick", 2, 1, ItemClass.KroostylPickaxe, achievementKroostyl).func_180788_c();
