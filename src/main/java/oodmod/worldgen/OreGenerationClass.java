@@ -1,11 +1,13 @@
 package oodmod.worldgen;
 
 import java.util.Random;
+
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraftforge.fml.common.IWorldGenerator;
 import oodmod.block.BlockClass;
-import cpw.mods.fml.common.IWorldGenerator;
 
 public class OreGenerationClass implements IWorldGenerator {
 
@@ -19,11 +21,14 @@ public class OreGenerationClass implements IWorldGenerator {
 	private void generate(World world, Random random, int x, int z) {
 		
 		for(int i = 0; i < 2; i++) {
-			int chunkX = x + random.nextInt(16);
-			int chunkY = random.nextInt(20);
-			int chunkZ = z + random.nextInt(16);
+			int posX = x + random.nextInt(16);
+			int posY = random.nextInt(20);
+			int posZ = z + random.nextInt(16);
 			
-			(new WorldGenMinable(BlockClass.KroostylOre, 4)).generate(world, random, chunkX, chunkY, chunkZ);
+			BlockPos pos = new BlockPos(posX,posY,posZ);
+			
+			//(new WorldGenMinable(BlockClass.KroostylOre, 4)).generate(world, random, chunkX, chunkY, chunkZ);
+			(new WorldGenMinable(BlockClass.KroostylOre.getDefaultState(), 4)).generate(world, random, pos);
 		}
 		
 	}

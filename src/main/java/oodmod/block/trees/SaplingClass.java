@@ -3,30 +3,27 @@ package oodmod.block.trees;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenBigTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.event.terraingen.TerrainGen;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import oodmod.block.BlockClass;
 import oodmod.main.MainClass;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import oodmod.worldgen.*;
+import oodmod.worldgen.OrangeTreeGenerationClass;
 
 public class SaplingClass extends BlockSapling {
 
 	  public static final String[] saplings = {"Orange"};
-	  private static final IIcon[] iconLength = new IIcon[saplings.length];
+	 // private static final IIcon[] iconLength = new IIcon[saplings.length];
 
 	  public SaplingClass()
 	  {
@@ -37,28 +34,26 @@ public class SaplingClass extends BlockSapling {
 	  }
 
 	  @Override
-	  public void updateTick(World world, int x, int y, int z, Random random)
-	  {
-	    if (!world.isRemote)
-	    {
-	      super.updateTick(world, x, y, z, random);
+	  public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+		if (!worldIn.isRemote) {
+			super.updateTick(worldIn, pos, state, rand);
 
-	      if ((world.getBlockLightValue(x, y + 1, z) >= 9) && (random.nextInt(7) == 0))
-	      {
-	        func_149879_c(world, x, y, z, random);
-	      }
-	    }
+			if (worldIn.getLightFromNeighbors(pos.offsetUp()) >= 9 && rand.nextInt(7) == 0) {
+				this.func_176478_d(worldIn, pos, state, rand);
+			}
+		}
 	  }
 
-	  @Override
+	  // TODO: Remove after transferring logic
+	  /*@Override
 	  @SideOnly(Side.CLIENT)
 	  public IIcon getIcon(int side, int meta)
 	  {
 	    meta &= 7;
 	    return iconLength[MathHelper.clamp_int(meta, 0, 5)];
-	  }
+	  }*/
 
-	  @Override
+	 /* @Override
 	  public void func_149879_c(World world, int x, int y, int z, Random random)
 	  {
 	    int l = world.getBlockMetadata(x, y, z);
@@ -71,81 +66,67 @@ public class SaplingClass extends BlockSapling {
 	    {
 	      func_149878_d(world, x, y, z, random);
 	    }
-	  }
+	  }*/
 
 	  @Override
-	  public void func_149878_d(World world, int x, int y, int z, Random random)
+	//public void func_149878_d(World world, int x, int y, int z, Random random)
+	  public void func_176476_e(World world, BlockPos pos, IBlockState state, Random random)
 	  {
-	    if (!TerrainGen.saplingGrowTree(world, random, x, y, z)) return;
-	    int l = world.getBlockMetadata(x, y, z) & 0x7;
+		if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(world, random, pos)) return;
 	    Object object = random.nextInt(10) == 0 ? new WorldGenBigTree(true) : new WorldGenTrees(true);
 	    int i1 = 0;
 	    int j1 = 0;
 	    boolean flag = false;
 
-	    switch (l)
-	    {
-	    case 0:
-	    	object = new OrangeTreeGenerationClass(BlockClass.Log, BlockClass.Leaves, 0, 0, false, 4, 6, false);
-	    	break;
-	    case 1:
-	    	break;
-	    case 2:
-	    	break;
-	    case 3:
-	    	break;
-	    case 4:
-	    	break;
-	    case 5:
-	    	break;
-	    default:
-	    	break;
-	    }
 	    
-	    Block block = Blocks.air;
+	    object = new OrangeTreeGenerationClass(BlockClass.Log, BlockClass.Leaves, 0, 0, false, 4, 6, false);
+	   
+	    
+	    IBlockState airState = Blocks.air.getDefaultState();
 
 	    if (flag)
 	    {
-	      world.setBlock(x + i1, y, z + j1, block, 0, 4);
-	      world.setBlock(x + i1 + 1, y, z + j1, block, 0, 4);
-	      world.setBlock(x + i1, y, z + j1 + 1, block, 0, 4);
-	      world.setBlock(x + i1 + 1, y, z + j1 + 1, block, 0, 4);
+	      world.setBlockState(pos.add(i1, 0, j1), airState, 4);
+	      world.setBlockState(pos.add(i1 + 1, 0, j1), airState, 4);
+	      world.setBlockState(pos.add(i1, 0, j1 + 1), airState, 4);
+	      world.setBlockState(pos.add(i1 + 1, 0, j1 + 1), airState, 4);
 	    }
 	    else
 	    {
-	      world.setBlock(x, y, z, block, 0, 4);
+	      world.setBlockState(pos, airState, 4);
 	    }
 
-	    if (!((WorldGenerator)object).generate(world, random, x + i1, y, z + j1))
+	    if (!((WorldGenerator)object).generate(world, random, pos.add(i1, 0, j1)))
 	    {
 	      if (flag)
 	      {
-	        world.setBlock(x + i1, y, z + j1, this, l, 4);
-	        world.setBlock(x + i1 + 1, y, z + j1, this, l, 4);
-	        world.setBlock(x + i1, y, z + j1 + 1, this, l, 4);
-	        world.setBlock(x + i1 + 1, y, z + j1 + 1, this, l, 4);
+	        world.setBlockState(pos.add( i1, 0, j1), state, 4);
+	        world.setBlockState(pos.add( i1 + 1, 0, j1), state, 4);
+	        world.setBlockState(pos.add( i1, 0, j1 + 1), state, 4);
+	        world.setBlockState(pos.add( i1 + 1, 0, j1 + 1),state, 4);
 	      }
 	      else
 	      {
-	        world.setBlock(x, y, z, this, l, 4);
+	        world.setBlockState(pos, state, 4);
 	      }
 	    }
 	  }
 
-	  @Override
+	  /*@Override
 	  public boolean func_149880_a(World world, int x, int y, int z, int par1)
 	  {
 	    return (world.getBlock(x, y, z) == this) && ((world.getBlockMetadata(x, y, z) & 0x7) == par1);
-	  }
+	  }*/
 
 	  @Override
-	  public int damageDropped(int par1)
-	  {
-	    return MathHelper.clamp_int(par1 & 0x7, 0, 5);
+	  public int damageDropped(IBlockState state) {
+		return 0;
 	  }
 
-	  @Override
+	  
+	@Override
 	  @SideOnly(Side.CLIENT)
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	  public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		  
 		  for (int i = 0; i < saplings.length; i++) {
@@ -153,7 +134,8 @@ public class SaplingClass extends BlockSapling {
 		  }
 	  }
 
-	  @Override
+	// TODO: Remove after transferring logic
+	 /* @Override
 	  @SideOnly(Side.CLIENT)
 	  public void registerBlockIcons(IIconRegister iconRegister)
 	  {
@@ -161,24 +143,24 @@ public class SaplingClass extends BlockSapling {
 	    {
 	      iconLength[i] = iconRegister.registerIcon(MainClass.MODID + ":" + saplings[i] + "Sapling");
 	    }
-	  }
+	  }*/
 
-	  @Override
+	  /*@Override
 	  public boolean func_149851_a(World world, int x, int y, int z, boolean bool)
 	  {
 	    return true;
-	  }
+	  }*/
 
-	  @Override
+	 /* @Override
 	  public boolean func_149852_a(World world, Random random, int x, int y, int z)
 	  {
 	    return world.rand.nextFloat() < 0.45D;
-	  }
+	  }*/
 
-	  @Override
+	  /*@Override
 	  public void func_149853_b(World world, Random random, int x, int y, int z)
 	  {
 	    func_149879_c(world, x, y, z, random);
-	  }
+	  }*/
 	
 }

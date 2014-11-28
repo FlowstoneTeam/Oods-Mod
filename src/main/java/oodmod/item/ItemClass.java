@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import oodmod.block.BlockClass;
 import oodmod.item.armour.KroostylArmour;
 import oodmod.item.armour.ReinforcedKroostylArmour;
@@ -15,8 +16,7 @@ import oodmod.item.tools.KroostylHoeClass;
 import oodmod.item.tools.KroostylPickaxeClass;
 import oodmod.item.tools.KroostylShovelClass;
 import oodmod.item.tools.KroostylSwordClass;
-import oodmod.main.MainClass;
-import cpw.mods.fml.common.registry.GameRegistry;
+
 
 public class ItemClass {
 	
@@ -96,29 +96,29 @@ public class ItemClass {
 	public static void initItems(){
 		
 		//Seeds
-		BroccoliSeeds = new SeedsClass(BlockClass.BroccoliCrop, Blocks.farmland).setUnlocalizedName("BroccoliSeeds").setTextureName(MainClass.MODID + ":BroccoliSeeds");
-		OnionSeeds = new SeedsClass(BlockClass.OnionCrop, Blocks.farmland).setUnlocalizedName("OnionSeeds").setTextureName(MainClass.MODID + ":OnionSeeds");
-		BeetrootSeeds = new SeedsClass(BlockClass.BeetrootCrop, Blocks.farmland).setUnlocalizedName("BeetrootSeeds").setTextureName(MainClass.MODID + ":BeetrootSeeds");
-		CauliflowerSeeds = new SeedsClass(BlockClass.CauliflowerCrop, Blocks.farmland).setUnlocalizedName("CauliflowerSeeds").setTextureName(MainClass.MODID + ":CauliflowerSeeds");
-		LeekSeeds = new SeedsClass(BlockClass.LeekCrop, Blocks.farmland).setUnlocalizedName("LeekSeeds").setTextureName(MainClass.MODID + ":LeekSeeds");
-		GarlicSeeds = new SeedsClass(BlockClass.GarlicCrop, Blocks.farmland).setUnlocalizedName("GarlicSeeds").setTextureName(MainClass.MODID + ":GarlicSeeds");
+		BroccoliSeeds = new SeedsClass(BlockClass.BroccoliCrop, Blocks.farmland).setUnlocalizedName("BroccoliSeeds");//.setTextureName(MainClass.MODID + ":BroccoliSeeds");
+		OnionSeeds = new SeedsClass(BlockClass.OnionCrop, Blocks.farmland).setUnlocalizedName("OnionSeeds");//.setTextureName(MainClass.MODID + ":OnionSeeds");
+		BeetrootSeeds = new SeedsClass(BlockClass.BeetrootCrop, Blocks.farmland).setUnlocalizedName("BeetrootSeeds");//.setTextureName(MainClass.MODID + ":BeetrootSeeds");
+		CauliflowerSeeds = new SeedsClass(BlockClass.CauliflowerCrop, Blocks.farmland).setUnlocalizedName("CauliflowerSeeds");//.setTextureName(MainClass.MODID + ":CauliflowerSeeds");
+		LeekSeeds = new SeedsClass(BlockClass.LeekCrop, Blocks.farmland).setUnlocalizedName("LeekSeeds");//.setTextureName(MainClass.MODID + ":LeekSeeds");
+		GarlicSeeds = new SeedsClass(BlockClass.GarlicCrop, Blocks.farmland).setUnlocalizedName("GarlicSeeds");//.setTextureName(MainClass.MODID + ":GarlicSeeds");
 			
 		//Veg
-		Broccoli = new VegClass(2, 0.3F, false).setUnlocalizedName("Broccoli").setTextureName(MainClass.MODID + ":Broccoli");
-		Onion = new VegClass(2, 0.3F, false).setUnlocalizedName("Onion").setTextureName(MainClass.MODID + ":Onion");
-		Beetroot = new VegClass(2, 0.3F, false).setUnlocalizedName("Beetroot").setTextureName(MainClass.MODID + ":Beetroot");
-		Cauliflower = new VegClass(2, 0.3F, false).setUnlocalizedName("Cauliflower").setTextureName(MainClass.MODID + ":Cauliflower");
-		Leek = new VegClass(2, 0.3F, false).setUnlocalizedName("Leek").setTextureName(MainClass.MODID + ":Leek");
-		Garlic = new VegClass(2, 0.3F, false).setUnlocalizedName("Garlic").setTextureName(MainClass.MODID + ":Garlic");
+		Broccoli = new VegClass(2, 0.3F, false).setUnlocalizedName("Broccoli");//.setTextureName(MainClass.MODID + ":Broccoli");
+		Onion = new VegClass(2, 0.3F, false).setUnlocalizedName("Onion");//.setTextureName(MainClass.MODID + ":Onion");
+		Beetroot = new VegClass(2, 0.3F, false).setUnlocalizedName("Beetroot");//.setTextureName(MainClass.MODID + ":Beetroot");
+		Cauliflower = new VegClass(2, 0.3F, false).setUnlocalizedName("Cauliflower");//.setTextureName(MainClass.MODID + ":Cauliflower");
+		Leek = new VegClass(2, 0.3F, false).setUnlocalizedName("Leek");//.setTextureName(MainClass.MODID + ":Leek");
+		Garlic = new VegClass(2, 0.3F, false).setUnlocalizedName("Garlic");//.setTextureName(MainClass.MODID + ":Garlic");
 			
-		BoiledBroccoli = new VegClass(6, 1.2F, false).setUnlocalizedName("BoiledBroccoli").setTextureName(MainClass.MODID + ":BoiledBroccoli");
+		BoiledBroccoli = new VegClass(6, 1.2F, false).setUnlocalizedName("BoiledBroccoli");//.setTextureName(MainClass.MODID + ":BoiledBroccoli");
 			
-		OrangeBroccoli = new VegClass(20, 1.2F, false).setUnlocalizedName("OrangeBroccoli").setTextureName(MainClass.MODID + ":OrangeBroccoli");
+		OrangeBroccoli = new VegClass(20, 1.2F, false).setUnlocalizedName("OrangeBroccoli");//.setTextureName(MainClass.MODID + ":OrangeBroccoli");
 			
 		//Fruit
-		Orange = new FruitClass(4, 0.8F, false).setUnlocalizedName("Orange").setTextureName(MainClass.MODID + ":Orange");
-		Banana = new FruitClass(4, 0.8F, false).setUnlocalizedName("Banana").setTextureName(MainClass.MODID + ":Banana");
-		Mango = new FruitClass(4, 0.8F, false).setUnlocalizedName("Mango").setTextureName(MainClass.MODID + ":Mango");
+		Orange = new FruitClass(4, 0.8F, false).setUnlocalizedName("Orange");//.setTextureName(MainClass.MODID + ":Orange");
+		Banana = new FruitClass(4, 0.8F, false).setUnlocalizedName("Banana");//.setTextureName(MainClass.MODID + ":Banana");
+		Mango = new FruitClass(4, 0.8F, false).setUnlocalizedName("Mango");//.setTextureName(MainClass.MODID + ":Mango");
 			
 		//Ingots & Gems
 		Kroostyl = new KroostylClass().setUnlocalizedName("Kroostyl");

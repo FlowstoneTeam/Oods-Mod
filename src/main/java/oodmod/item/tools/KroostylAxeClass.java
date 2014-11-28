@@ -9,7 +9,8 @@ public class KroostylAxeClass extends ItemAxe {
 		super(material);
 		
 		setCreativeTab(MainClass.OodModTab);
-		setTextureName(MainClass.MODID + ":KroostylAxe");
+		// TODO: Remove after transferring logic
+		//setTextureName(MainClass.MODID + ":KroostylAxe");
 		
 	}
 

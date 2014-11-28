@@ -9,7 +9,8 @@ public class KroostylShovelClass extends ItemSpade {
 		super(material);
 		
 		setCreativeTab(MainClass.OodModTab);
-		setTextureName(MainClass.MODID + ":KroostylShovel");
+		// TODO: Remove after transferring logic
+		//setTextureName(MainClass.MODID + ":KroostylShovel");
 		
 	}
 

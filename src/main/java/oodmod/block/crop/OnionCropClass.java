@@ -3,14 +3,12 @@ package oodmod.block.crop;
 import java.util.Random;
 
 import net.minecraft.block.BlockCrops;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
-import net.minecraft.util.IIcon;
 import oodmod.item.ItemClass;
-import oodmod.main.MainClass;
 
 public class OnionCropClass extends BlockCrops {
-	
+	// TODO: Remove after transferring logic
+	/*
 	private IIcon[] iconArray;
 	
 	@Override
@@ -35,7 +33,7 @@ public class OnionCropClass extends BlockCrops {
 		
 		return this.iconArray[3];
 		
-	}
+	}*/
 	
 	@Override
 	public int quantityDropped (Random random) {
@@ -43,12 +41,12 @@ public class OnionCropClass extends BlockCrops {
 	}
 	
 	@Override
-	protected Item func_149866_i() {
+	protected Item getSeed() {
 		return ItemClass.OnionSeeds;
 	}
 	
 	@Override
-	protected Item func_149865_P() {
+	protected Item getCrop() {
 		return ItemClass.Onion;
 	}
 

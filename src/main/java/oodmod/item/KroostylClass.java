@@ -8,7 +8,7 @@ public class KroostylClass extends Item {
 	public KroostylClass() {
 
 		setCreativeTab(MainClass.OodModTab);
-		setTextureName(MainClass.MODID + ":Kroostyl");
+		//setTextureName(MainClass.MODID + ":Kroostyl");
 		
 	}
 

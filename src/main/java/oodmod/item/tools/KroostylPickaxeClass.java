@@ -9,7 +9,8 @@ public class KroostylPickaxeClass extends ItemPickaxe {
 		super(material);
 		
 		setCreativeTab(MainClass.OodModTab);
-		setTextureName(MainClass.MODID + ":KroostylPickaxe");
+		// TODO: Remove after transferring logic
+		//setTextureName(MainClass.MODID + ":KroostylPickaxe");
 		
 	}
 

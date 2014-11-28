@@ -6,8 +6,10 @@ import oodmod.main.MainClass;
 
 public class KroostylStairsClass extends BlockStairs {
 
+	
 	public KroostylStairsClass(Block block, int arg1) {
-		super(block, arg1);
+		//super(block, arg1);
+		super(block.getDefaultState());
 
 		setCreativeTab(MainClass.OodModTab);
 		setHardness(8.0F);

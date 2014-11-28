@@ -9,7 +9,8 @@ public class KroostylSwordClass extends ItemSword {
 		super(material);
 		
 		setCreativeTab(MainClass.OodModTab);
-		setTextureName(MainClass.MODID + ":KroostylSword");
+		// TODO: Remove after transferring logic
+		//setTextureName(MainClass.MODID + ":KroostylSword");
 		
 	}
 

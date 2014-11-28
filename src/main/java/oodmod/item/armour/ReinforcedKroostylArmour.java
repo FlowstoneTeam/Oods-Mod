@@ -13,7 +13,8 @@ public class ReinforcedKroostylArmour extends ItemArmor {
 			
 		setCreativeTab(MainClass.OodModTab);
 			
-		if (placement == 0) {
+		// TODO: Remove after transferring logic
+		/*if (placement == 0) {
 			setTextureName(MainClass.MODID + ":ReinforcedKroostylHelmet");
 		}
 		else if (placement == 1) {
@@ -24,7 +25,7 @@ public class ReinforcedKroostylArmour extends ItemArmor {
 		}
 		else if (placement == 3) {
 			setTextureName(MainClass.MODID + ":ReinforcedKroostylBoots");
-		}
+		}*/
 			
 	}
 	

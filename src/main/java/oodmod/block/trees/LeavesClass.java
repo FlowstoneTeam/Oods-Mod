@@ -4,17 +4,18 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.BlockPlanks.EnumType;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraft.util.BlockPos;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import oodmod.block.BlockClass;
-import oodmod.main.MainClass;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class LeavesClass extends BlockLeaves {
 
@@ -22,25 +23,19 @@ public class LeavesClass extends BlockLeaves {
 	public static final String[] leaves = new String[] {"Orange"};
 	
 	@Override
-	  public Item getItemDropped(int par1, Random random, int par2)
-      {
+	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(BlockClass.Sapling);
-      }
+    }
 
 	@Override
-	  public int damageDropped(int i)
-	  {
-		  return super.damageDropped(i) + 0;
-	  }
-
+	public int getDamageValue(World worldIn, BlockPos pos) {
+		IBlockState iblockstate = worldIn.getBlockState(pos);
+		return iblockstate.getBlock().getMetaFromState(iblockstate) & 0x3;
+	}
+	
 	@Override
-	  public int getDamageValue(World paramWorld, int paramInt1, int paramInt2, int paramInt3)
-	  {
-	    return paramWorld.getBlockMetadata(paramInt1, paramInt2, paramInt3) & 0x3;
-	  }
-
-	@Override
-	  @SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT)
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	  public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		  
 		  for (int i = 0; i < leaves.length; i++) {
@@ -48,7 +43,8 @@ public class LeavesClass extends BlockLeaves {
 		  }
 	  }
 
-	@Override
+	// TODO: Remove after transferring logic
+	/*@Override
 	  @SideOnly(Side.CLIENT)
 	  public void registerBlockIcons(IIconRegister iconRegister) {
 	    for (int i = 0; i < leaftypes.length; i++) {
@@ -75,7 +71,7 @@ public class LeavesClass extends BlockLeaves {
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
-	}
+	}*/
 	
 	@Override
 	public boolean isOpaqueCube() {
@@ -83,8 +79,21 @@ public class LeavesClass extends BlockLeaves {
 	}
 	
 	@Override
-	public boolean shouldSideBeRendered(IBlockAccess blockaccess, int x, int y, int z, int side) {
-		return true;
+	public boolean shouldSideBeRendered(IBlockAccess worldIn, BlockPos pos, EnumFacing side) {
+		// TODO Auto-generated method stub
+		return super.shouldSideBeRendered(worldIn, pos, side);
+	}
+
+	@Override
+	public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public EnumType func_176233_b(int p_176233_1_) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

@@ -4,21 +4,20 @@ import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import oodmod.main.MainClass;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public class PlankClass extends Block
 {
   public static final String[] planks = {"Orange"};
 
-  @SideOnly(Side.CLIENT)
-  private IIcon[] field_150095_b;
+ // @SideOnly(Side.CLIENT)
+ // private IIcon[] field_150095_b;
 
   public PlankClass() {
     super(Material.wood);
@@ -30,7 +29,8 @@ public class PlankClass extends Block
 	setHarvestLevel("axe", 0);
     
   }
-
+  //TODO: Remove after transferring logic
+  /*
   @Override
   @SideOnly(Side.CLIENT)
   public IIcon getIcon(int par1, int par2) {
@@ -39,22 +39,23 @@ public class PlankClass extends Block
     }
     return this.field_150095_b[par2];
   }
-
+   */
   @Override
-  public int damageDropped(int par1)
-  {
-    return par1;
+  public int damageDropped(IBlockState state) {
+    return 0;
   }
 
   @Override
   @SideOnly(Side.CLIENT)
-	public void getSubBlocks (Item item, CreativeTabs tabs, List list) {
-		for (int i = 0; i < planks.length; i++) {
-			list.add(new ItemStack(item, 1, i));
-		}
-		
+  @SuppressWarnings({ "rawtypes", "unchecked" })
+  public void getSubBlocks (Item item, CreativeTabs tabs, List list) {
+	  for (int i = 0; i < planks.length; i++) {
+		  list.add(new ItemStack(item, 1, i));
+	  }
   }
 
+  //TODO: Remove after transferring logic
+  /*
   @Override
   @SideOnly(Side.CLIENT)
   public void registerBlockIcons(IIconRegister iconRegister) {
@@ -62,6 +63,6 @@ public class PlankClass extends Block
 
     for (int i = 0; i < this.field_150095_b.length; i++)
       this.field_150095_b[i] = iconRegister.registerIcon(MainClass.MODID + ":" + planks[i] + "Planks");
-  }
+  }*/
   
 }

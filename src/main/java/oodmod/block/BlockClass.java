@@ -1,8 +1,8 @@
 package oodmod.block;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import oodmod.block.crop.BeetrootCropClass;
 import oodmod.block.crop.BroccoliCropClass;
 import oodmod.block.crop.CauliflowerCropClass;
@@ -17,7 +17,6 @@ import oodmod.block.trees.PlankBlockClass;
 import oodmod.block.trees.PlankClass;
 import oodmod.block.trees.SaplingBlockClass;
 import oodmod.block.trees.SaplingClass;
-import oodmod.main.MainClass;
 
 public class BlockClass {
 	
@@ -62,36 +61,36 @@ public class BlockClass {
     public static void initBlocks(){
     	
     	//Crops
-  		BroccoliCrop = new BroccoliCropClass().setBlockName("BroccoliCrop");
-  		OnionCrop = new OnionCropClass().setBlockName("OnionCrop");
-  		BeetrootCrop = new BeetrootCropClass().setBlockName("BeetrootCrop");
-  		CauliflowerCrop = new CauliflowerCropClass().setBlockName("CauliflowerCrop");
-  		LeekCrop = new LeekCropClass().setBlockName("LeekCrop");
-  		GarlicCrop = new GarlicCropClass().setBlockName("GarlicCrop");
+  		BroccoliCrop = new BroccoliCropClass().setUnlocalizedName("BroccoliCrop");
+  		OnionCrop = new OnionCropClass().setUnlocalizedName("OnionCrop");
+  		BeetrootCrop = new BeetrootCropClass().setUnlocalizedName("BeetrootCrop");
+  		CauliflowerCrop = new CauliflowerCropClass().setUnlocalizedName("CauliflowerCrop");
+  		LeekCrop = new LeekCropClass().setUnlocalizedName("LeekCrop");
+  		GarlicCrop = new GarlicCropClass().setUnlocalizedName("GarlicCrop");
   		
   		//Veg
-  		CompressedBroccoli = new CompressedVegClass().setBlockName("CompressedBroccoli").setBlockTextureName(MainClass.MODID + ":CompressedBroccoli");
-  		CompressedOnion = new CompressedVegClass().setBlockName("CompressedOnion").setBlockTextureName(MainClass.MODID + ":CompressedOnion");
-  		CompressedBeetroot = new CompressedVegClass().setBlockName("CompressedBeetroot").setBlockTextureName(MainClass.MODID + ":CompressedBeetroot");
-  		CompressedCauliflower = new CompressedVegClass().setBlockName("CompressedCauliflower").setBlockTextureName(MainClass.MODID + ":CompressedCauliflower");
-  		CompressedLeek = new CompressedVegClass().setBlockName("CompressedLeek").setBlockTextureName(MainClass.MODID + ":CompressedLeek");
-  		CompressedGarlic = new CompressedVegClass().setBlockName("CompressedGarlic").setBlockTextureName(MainClass.MODID + ":CompressedGarlic");
+  		CompressedBroccoli = new CompressedVegClass().setUnlocalizedName("CompressedBroccoli");//.setBlockTextureName(MainClass.MODID + ":CompressedBroccoli");
+  		CompressedOnion = new CompressedVegClass().setUnlocalizedName("CompressedOnion");//.setBlockTextureName(MainClass.MODID + ":CompressedOnion");
+  		CompressedBeetroot = new CompressedVegClass().setUnlocalizedName("CompressedBeetroot");//.setBlockTextureName(MainClass.MODID + ":CompressedBeetroot");
+  		CompressedCauliflower = new CompressedVegClass().setUnlocalizedName("CompressedCauliflower");//.setBlockTextureName(MainClass.MODID + ":CompressedCauliflower");
+  		CompressedLeek = new CompressedVegClass().setUnlocalizedName("CompressedLeek");//.setBlockTextureName(MainClass.MODID + ":CompressedLeek");
+  		CompressedGarlic = new CompressedVegClass().setUnlocalizedName("CompressedGarlic");//.setBlockTextureName(MainClass.MODID + ":CompressedGarlic");
   		
   		//Ores
-  		KroostylOre = new KroostylOreClass(Material.rock).setBlockName("KroostylOre");
+  		KroostylOre = new KroostylOreClass(Material.rock).setUnlocalizedName("KroostylOre");
   		
   		//Decorative Blocks
-  		KroostylBlock = new KroostylBlocksClass().setBlockName("KroostylBlock").setBlockTextureName(MainClass.MODID + ":KroostylBlock");
-  		KroostylBricks = new KroostylBlocksClass().setBlockName("KroostylBricks").setBlockTextureName(MainClass.MODID + ":KroostylBricks");
-  		KroostylChiseledBricks = new KroostylBlocksClass().setBlockName("KroostylChiseledBricks").setBlockTextureName(MainClass.MODID + ":KroostylChiseledBricks");
-  		KroostylBrickStairs = new KroostylStairsClass(KroostylBricks, 0).setBlockName("KroostylBrickStairs");
+  		KroostylBlock = new KroostylBlocksClass().setUnlocalizedName("KroostylBlock");//.setBlockTextureName(MainClass.MODID + ":KroostylBlock");
+  		KroostylBricks = new KroostylBlocksClass().setUnlocalizedName("KroostylBricks");//.setBlockTextureName(MainClass.MODID + ":KroostylBricks");
+  		KroostylChiseledBricks = new KroostylBlocksClass().setUnlocalizedName("KroostylChiseledBricks");//.setBlockTextureName(MainClass.MODID + ":KroostylChiseledBricks");
+  		KroostylBrickStairs = new KroostylStairsClass(KroostylBricks, 0).setUnlocalizedName("KroostylBrickStairs");
 
-  		Plank = new PlankClass().setBlockName("Plank");
+  		Plank = new PlankClass().setUnlocalizedName("Plank");
   		
   		//Trees
-  		Log = new LogClass().setBlockName("Log");
-  		Leaves = new LeavesClass().setBlockName("Leaves");
-  		Sapling = new SaplingClass().setBlockName("Sapling");
+  		Log = new LogClass().setUnlocalizedName("Log");
+  		Leaves = new LeavesClass().setUnlocalizedName("Leaves");
+  		Sapling = new SaplingClass().setUnlocalizedName("Sapling");
     	
     }
     

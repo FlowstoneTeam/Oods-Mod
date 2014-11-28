@@ -6,6 +6,15 @@ import net.minecraft.stats.Achievement;
 import net.minecraft.stats.AchievementList;
 import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import oodmod.achievements.KroostylCraftEventClass;
 import oodmod.achievements.KroostylMineEventClass;
@@ -13,15 +22,7 @@ import oodmod.block.BlockClass;
 import oodmod.creativetabs.OodModTab;
 import oodmod.item.ItemClass;
 import oodmod.worldgen.OreGenerationClass;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
+
 
 @Mod(modid = MainClass.MODID, name = MainClass.NAME, version = MainClass.VERSION)
 public class MainClass {
@@ -60,8 +61,8 @@ public class MainClass {
 	public void Init(FMLInitializationEvent Event){
 		
 		//Achievements
-		achievementKroostyl = new Achievement("achievement.MineKroostyl", "MineKroostyl", 0, 0, BlockClass.KroostylOre, AchievementList.diamonds).registerStat();
-		achievementKroostylPick = new Achievement("achievement.KroostylPick", "KroostylPick", 2, 1, ItemClass.KroostylPickaxe, achievementKroostyl).registerStat();
+		achievementKroostyl = new Achievement("achievement.MineKroostyl", "MineKroostyl", 0, 0, BlockClass.KroostylOre, AchievementList.diamonds).func_180788_c();
+		achievementKroostylPick = new Achievement("achievement.KroostylPick", "KroostylPick", 2, 1, ItemClass.KroostylPickaxe, achievementKroostyl).func_180788_c();
 		
 		AchievementPage.registerAchievementPage(new AchievementPage("Ood's Mod", new Achievement[]{achievementKroostyl, achievementKroostylPick}));
 		
