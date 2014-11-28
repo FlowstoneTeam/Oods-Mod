@@ -1,6 +1,7 @@
 package oodmod.block.trees;
 
 import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -30,6 +31,7 @@ public class PlankClass extends Block
     
   }
 
+  @Override
   @SideOnly(Side.CLIENT)
   public IIcon getIcon(int par1, int par2) {
     if ((par2 < 0) || (par2 >= this.field_150095_b.length)) {
@@ -38,11 +40,13 @@ public class PlankClass extends Block
     return this.field_150095_b[par2];
   }
 
+  @Override
   public int damageDropped(int par1)
   {
     return par1;
   }
 
+  @Override
   @SideOnly(Side.CLIENT)
 	public void getSubBlocks (Item item, CreativeTabs tabs, List list) {
 		for (int i = 0; i < planks.length; i++) {
@@ -51,6 +55,7 @@ public class PlankClass extends Block
 		
   }
 
+  @Override
   @SideOnly(Side.CLIENT)
   public void registerBlockIcons(IIconRegister iconRegister) {
     this.field_150095_b = new IIcon[planks.length];

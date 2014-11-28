@@ -1,6 +1,7 @@
 package oodmod.block.trees;
 
 import java.util.List;
+
 import net.minecraft.block.BlockLog;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -14,6 +15,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class LogClass extends BlockLog {
 	public static final String[] logs = new String[] {"Orange"};
 		
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubBlocks (Item item, CreativeTabs tabs, List list) {
 		for (int i = 0; i < logs.length; i++) {
@@ -22,6 +24,7 @@ public class LogClass extends BlockLog {
 		
 	}
 	
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.field_150167_a = new IIcon[logs.length];

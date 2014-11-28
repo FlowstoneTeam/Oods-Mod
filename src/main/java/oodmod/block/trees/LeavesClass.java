@@ -2,6 +2,7 @@ package oodmod.block.trees;
 
 import java.util.List;
 import java.util.Random;
+
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -20,21 +21,25 @@ public class LeavesClass extends BlockLeaves {
 	public static final String[][] leaftypes = new String[][] {{"OrangeLeaves", "OrangeLeavesOpaque"}};
 	public static final String[] leaves = new String[] {"Orange"};
 	
+	@Override
 	  public Item getItemDropped(int par1, Random random, int par2)
       {
         return Item.getItemFromBlock(BlockClass.Sapling);
       }
 
+	@Override
 	  public int damageDropped(int i)
 	  {
 		  return super.damageDropped(i) + 0;
 	  }
 
+	@Override
 	  public int getDamageValue(World paramWorld, int paramInt1, int paramInt2, int paramInt3)
 	  {
 	    return paramWorld.getBlockMetadata(paramInt1, paramInt2, paramInt3) & 0x3;
 	  }
 
+	@Override
 	  @SideOnly(Side.CLIENT)
 	  public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		  
@@ -43,6 +48,7 @@ public class LeavesClass extends BlockLeaves {
 		  }
 	  }
 
+	@Override
 	  @SideOnly(Side.CLIENT)
 	  public void registerBlockIcons(IIconRegister iconRegister) {
 	    for (int i = 0; i < leaftypes.length; i++) {

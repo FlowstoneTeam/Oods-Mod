@@ -14,6 +14,7 @@ public class LeavesBlockClass extends ItemBlock {
 		
 	}
 	
+	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
 		int i = itemstack.getItemDamage();
 		if (i < 0 || i >= leaves.length) {
@@ -24,6 +25,7 @@ public class LeavesBlockClass extends ItemBlock {
 		
 	}
 	
+	@Override
 	public int getMetadata (int meta) {
 		return meta;
 	}

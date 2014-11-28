@@ -27,6 +27,7 @@ public class KroostylOreClass extends BlockOre {
 		return ItemClass.Kroostyl;
 	}
 	
+	@Override
 	public int quantityDropped(Random rand) {
 		return rand.nextInt(1) + 1;
 	}

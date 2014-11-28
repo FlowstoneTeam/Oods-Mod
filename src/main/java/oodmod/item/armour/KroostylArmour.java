@@ -28,6 +28,7 @@ public class KroostylArmour extends ItemArmor {
 			
 	}
 	
+	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
 		if (stack.getItem() == ItemClass.KroostylHelmet || stack.getItem() == ItemClass.KroostylChestplate || stack.getItem() == ItemClass.KroostylBoots) {
 			return MainClass.MODID + ":textures/models/armor/KroostylArmour_1.png";

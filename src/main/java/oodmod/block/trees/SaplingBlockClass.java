@@ -14,6 +14,7 @@ public class SaplingBlockClass extends ItemBlock {
 		
 	}
 	
+	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
 		int i = itemstack.getItemDamage();
 		if (i < 0 || i >= saplings.length) {
@@ -24,6 +25,7 @@ public class SaplingBlockClass extends ItemBlock {
 		
 	}
 	
+	@Override
 	public int getMetadata (int meta) {
 		return meta;
 	}

@@ -12,6 +12,7 @@ public class BeetrootCropClass extends BlockCrops {
 	
 	private IIcon[] iconArray;
 	
+	@Override
 	public void registerBlockIcons(IIconRegister iconRegister) {
 		this.iconArray = new IIcon[4];
 		
@@ -20,6 +21,7 @@ public class BeetrootCropClass extends BlockCrops {
 		}
 	}
 	
+	@Override
 	public IIcon getIcon(int side, int metadata) {
 		if (metadata < 7) {
 			if (metadata == 6) {
@@ -34,14 +36,17 @@ public class BeetrootCropClass extends BlockCrops {
 		
 	}
 	
+	@Override
 	public int quantityDropped (Random random) {
 		return 1;
 	}
 	
+	@Override
 	protected Item func_149866_i() {
 		return ItemClass.BeetrootSeeds;
 	}
 	
+	@Override
 	protected Item func_149865_P() {
 		return ItemClass.Beetroot;
 	}
