@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.91"
+version = "1.95"
 group= "oodmod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "Oodmod"
 
@@ -27,11 +27,6 @@ configFile.withReader {
     def prop = new Properties()
     prop.load(it)
     project.ext.config = new ConfigSlurper().parse prop
-}
-
-minecraft {
-    version = config.minecraft_version + "-" + config.forge_version
-    runDir = "eclipse"
 }
 
 dependencies {
@@ -77,6 +72,12 @@ if(System.getenv().ARTIFACT_VERSION != null) {
 }
 
 version = "${config.minecraft_version}-${artifact_version}"
+
+minecraft {
+    version = config.minecraft_version + "-" + config.forge_version
+    runDir = "eclipse"
+    replace '${version}', artifact_version
+}
 
 processResources
 {

@@ -2,7 +2,7 @@
 {
   "modid": "oodmod",
   "name": "Ood's Mod",
-  "version": "1.91",
+  "version": "${version}",
   "description": "",
   "mcversion": "${mcversion}",
   "authorList": ["Ood"],
