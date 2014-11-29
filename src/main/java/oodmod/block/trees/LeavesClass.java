@@ -16,11 +16,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import oodmod.block.BlockClass;
+import oodmod.main.MainClass;
 
 public class LeavesClass extends BlockLeaves {
 
 	public static final String[][] leaftypes = new String[][] {{"OrangeLeaves", "OrangeLeavesOpaque"}};
 	public static final String[] leaves = new String[] {"Orange"};
+	
+	public LeavesClass() {
+	    this.setCreativeTab(MainClass.OodModTab);
+    }
 	
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "oodmod:OrangeLog" },
+        "axis=z":   { "model": "oodmod:OrangeLogSide" },
+        "axis=x":   { "model": "oodmod:OrangeLogSide", "y": 90 },
+        "axis=none": { "model": "oodmod:OrangeBark" }
+    }
+}

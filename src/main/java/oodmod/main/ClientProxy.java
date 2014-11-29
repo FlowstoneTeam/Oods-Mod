@@ -4,7 +4,14 @@ import net.minecraft.client.renderer.ItemModelMesher;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import oodmod.block.BlockClass;
+import oodmod.block.trees.LeavesBlockClass;
+import oodmod.block.trees.LogBlockClass;
+import oodmod.block.trees.PlankBlockClass;
+import oodmod.block.trees.SaplingBlockClass;
 import oodmod.item.ItemClass;
 
 public class ClientProxy extends CommonProxy {
@@ -15,7 +22,70 @@ public class ClientProxy extends CommonProxy {
 	
 	@Override
 	public void registerModels() {
-		
+	    registerBlockModels();
+	    registerItemModels();
+	}
+	
+	private void registerBlockModels(){
+	    
+	    RenderItem renderItem = FMLClientHandler.instance().getClient().getRenderItem();
+        ItemModelMesher itemModelMesher = renderItem.getItemModelMesher();
+        
+        //Crops
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.BroccoliCrop), "oodmod:BroccoliCrop");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.OnionCrop), "oodmod:OnionCrop");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.BeetrootCrop), "oodmod:BeetrootCrop");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.CauliflowerCrop), "oodmod:CauliflowerCrop");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.LeekCrop), "oodmod:LeekCrop");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.GarlicCrop), "oodmod:GarlicCrop");
+        //itemModelMesher.register(Item.getItemFromBlock(BlockClass.BroccoliCrop), 0, new ModelResourceLocation("oodmod:BroccoliCrop", "inventory"));
+        //itemModelMesher.register(Item.getItemFromBlock(BlockClass.OnionCrop), 0, new ModelResourceLocation("oodmod:OnionCrop", "inventory"));
+        //itemModelMesher.register(Item.getItemFromBlock(BlockClass.BeetrootCrop), 0, new ModelResourceLocation("oodmod:BeetrootCrop", "inventory"));
+        //itemModelMesher.register(Item.getItemFromBlock(BlockClass.CauliflowerCrop), 0, new ModelResourceLocation("oodmod:CauliflowerCrop", "inventory"));
+        //itemModelMesher.register(Item.getItemFromBlock(BlockClass.LeekCrop), 0, new ModelResourceLocation("oodmod:LeekCrop", "inventory"));
+        //itemModelMesher.register(Item.getItemFromBlock(BlockClass.GarlicCrop), 0, new ModelResourceLocation("oodmod:GarlicCrop", "inventory"));
+                
+        //Veg
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.CompressedBroccoli), "oodmod:CompressedBroccoli");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.CompressedOnion), "oodmod:CompressedOnion");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.CompressedBeetroot), "oodmod:CompressedBeetroot");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.CompressedCauliflower), "oodmod:CompressedCauliflower");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.CompressedLeek), "oodmod:CompressedLeek");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.CompressedGarlic), "oodmod:CompressedGarlic");
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.CompressedBroccoli), 0, new ModelResourceLocation("oodmod:CompressedBroccoli", "inventory"));
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.CompressedOnion), 0, new ModelResourceLocation("oodmod:CompressedOnion", "inventory"));
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.CompressedBeetroot), 0, new ModelResourceLocation("oodmod:CompressedBeetroot", "inventory"));
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.CompressedCauliflower), 0, new ModelResourceLocation("oodmod:CompressedCauliflower", "inventory"));
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.CompressedLeek), 0, new ModelResourceLocation("oodmod:CompressedLeek", "inventory"));
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.CompressedGarlic), 0, new ModelResourceLocation("oodmod:CompressedGarlic", "inventory"));
+                
+        //Ores
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.KroostylOre), "oodmod:KroostylOre");
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.KroostylOre), 0, new ModelResourceLocation("oodmod:KroostylOre", "inventory"));
+                
+        //Decorative Blocks
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.KroostylBlock), "oodmod:KroostylBlock");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.KroostylBricks), "oodmod:KroostylBricks");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.KroostylChiseledBricks), "oodmod:KroostylChiseledBricks");
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.KroostylBrickStairs), "oodmod:KroostylBrickStairs");
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.KroostylBlock), 0, new ModelResourceLocation("oodmod:KroostylBlock", "inventory"));
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.KroostylBricks), 0, new ModelResourceLocation("oodmod:KroostylBricks", "inventory"));
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.KroostylChiseledBricks), 0, new ModelResourceLocation("oodmod:KroostylChiseledBricks", "inventory"));
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.KroostylBrickStairs), 0, new ModelResourceLocation("oodmod:KroostylBrickStairs", "inventory"));
+
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.Plank), "oodmod:" + BlockClass.Plank.getUnlocalizedName().substring(5));
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.Plank), 0, new ModelResourceLocation("oodmod:" + BlockClass.Plank.getUnlocalizedName().substring(5), "inventory"));
+                
+        //Trees
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.Log), "oodmod:" + BlockClass.Log.getUnlocalizedName().substring(5));
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.Leaves), "oodmod:" + BlockClass. Leaves.getUnlocalizedName().substring(5));
+        ModelBakery.addVariantName(Item.getItemFromBlock(BlockClass.Sapling), "oodmod:" + BlockClass.Sapling.getUnlocalizedName().substring(5));
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.Log), 0, new ModelResourceLocation("oodmod:" + BlockClass.Log.getUnlocalizedName().substring(5), "inventory"));
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.Leaves), 0, new ModelResourceLocation("oodmod:" + BlockClass. Leaves.getUnlocalizedName().substring(5), "inventory"));
+        itemModelMesher.register(Item.getItemFromBlock(BlockClass.Sapling), 0, new ModelResourceLocation("oodmod:" + BlockClass.Sapling.getUnlocalizedName().substring(5), "inventory"));
+	}
+	
+	private void registerItemModels(){
 		
 		RenderItem renderItem = FMLClientHandler.instance().getClient().getRenderItem();
 		ItemModelMesher itemModelMesher = renderItem.getItemModelMesher();

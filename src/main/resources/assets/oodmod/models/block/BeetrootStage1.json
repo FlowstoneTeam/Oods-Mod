@@ -1,0 +1,6 @@
+{
+    "parent": "block/crop",
+    "textures": {
+        "crop": "oodmod:blocks/BeetrootCrop2"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "age=0": { "model": "oodmod:LeekStage0" },
+        "age=1": { "model": "oodmod:LeekStage0" },
+        "age=2": { "model": "oodmod:LeekStage1" },
+        "age=3": { "model": "oodmod:LeekStage1" },
+        "age=4": { "model": "oodmod:LeekStage2" },
+        "age=5": { "model": "oodmod:LeekStage2" },
+        "age=6": { "model": "oodmod:LeekStage2" },
+        "age=7": { "model": "oodmod:LeekStage3" }
+    }
+}
