@@ -1,7 +1,7 @@
 {
     "parent": "block/column_side",
     "textures": {
-        "end": "blocks/OrangeLogTop",
-        "side": "blocks/OrangeLog"
+        "end": "oodmod:blocks/OrangeLogTop",
+        "side": "oodmod:blocks/OrangeLog"
     }
 }

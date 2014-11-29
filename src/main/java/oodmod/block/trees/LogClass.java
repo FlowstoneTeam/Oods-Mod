@@ -3,6 +3,10 @@ package oodmod.block.trees;
 import java.util.List;
 
 import net.minecraft.block.BlockLog;
+import net.minecraft.block.BlockPlanks;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,7 +19,48 @@ public class LogClass extends BlockLog {
 		
 	public LogClass() {
 		setCreativeTab(MainClass.OodModTab);
+		this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS_PROP, BlockLog.EnumAxis.Y));
 	}
+	
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+	    IBlockState state = this.getDefaultState();
+	    
+	    int axis = meta % 4;
+	    
+        switch (axis) {
+            case 0:
+                state = state.withProperty(AXIS_PROP, BlockLog.EnumAxis.Y);
+                break;
+            case 1:
+                state = state.withProperty(AXIS_PROP, BlockLog.EnumAxis.X);
+                break;
+            case 2:
+                state = state.withProperty(AXIS_PROP, BlockLog.EnumAxis.Z);
+                break;
+            default:
+                state = state.withProperty(AXIS_PROP, BlockLog.EnumAxis.NONE);
+        }
+	    
+	    
+	    return state;
+	}
+	
+	@Override
+	public int getMetaFromState(IBlockState state) {
+	    return ((BlockLog.EnumAxis)state.getValue(AXIS_PROP)).ordinal();
+	}
+	
+	@Override
+	protected BlockState createBlockState() {
+	    return new BlockState(this, new IProperty[] { AXIS_PROP });
+	}
+	
+	@Override
+	protected ItemStack createStackedBlock(IBlockState state)
+    {
+        return new ItemStack(Item.getItemFromBlock(this), 1);
+    }
 	
 	@Override
 	@SideOnly(Side.CLIENT)
