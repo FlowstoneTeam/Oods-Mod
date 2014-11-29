@@ -4,7 +4,10 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.BlockLeaves;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockPlanks.EnumType;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -26,6 +29,34 @@ public class LeavesClass extends BlockLeaves {
 	public LeavesClass() {
 	    this.setCreativeTab(MainClass.OodModTab);
     }
+	
+	@Override
+	protected BlockState createBlockState() {
+	    return new BlockState(this, new IProperty[] {field_176236_b, field_176237_a});
+	}
+	
+	@Override
+	public IBlockState getStateFromMeta(int meta) {
+	    return this.getDefaultState().withProperty(field_176237_a, Boolean.valueOf((meta & 4) == 0)).withProperty(field_176236_b, Boolean.valueOf((meta & 8) > 0));
+	}
+	
+	@Override
+	public int getMetaFromState(IBlockState state) {
+	    
+	    int i = 0;
+
+        if (!((Boolean)state.getValue(field_176237_a)).booleanValue())
+        {
+            i |= 4;
+        }
+
+        if (((Boolean)state.getValue(field_176236_b)).booleanValue())
+        {
+            i |= 8;
+        }
+
+        return i;
+	}
 	
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
@@ -89,12 +120,12 @@ public class LeavesClass extends BlockLeaves {
 		return super.shouldSideBeRendered(worldIn, pos, side);
 	}
 
-	@Override
+    @Override
 	public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
-		// TODO Auto-generated method stub
-		return null;
+		return new java.util.ArrayList<ItemStack>(java.util.Arrays.asList(new ItemStack(this, 1))); 
 	}
 
+    // Enum for leave types, not needed at the moment
 	@Override
 	public EnumType func_176233_b(int p_176233_1_) {
 		// TODO Auto-generated method stub
