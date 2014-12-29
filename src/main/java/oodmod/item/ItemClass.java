@@ -16,6 +16,7 @@ import oodmod.item.tools.KroostylHoeClass;
 import oodmod.item.tools.KroostylPickaxeClass;
 import oodmod.item.tools.KroostylShovelClass;
 import oodmod.item.tools.KroostylSwordClass;
+import oodmod.main.MainClass;
 
 
 public class ItemClass {
@@ -28,9 +29,8 @@ public class ItemClass {
 	
 	//Materials
 	public static ToolMaterial KroostylMaterial = EnumHelper.addToolMaterial("Kroostyl", 4, 2000, 10.0F, 8.0F, 10);
-	// TODO: Enable after finding a workaround for FML Armour Material crash
-	//public static ArmorMaterial KroostylArmour = EnumHelper.addArmorMaterial("Kroostyl", 66, new int[] {6, 16, 12, 6}, 10);
-	//public static ArmorMaterial ReinforcedKroostylArmour = EnumHelper.addArmorMaterial("ReinforcedKroostyl", 264, new int[] {8, 18, 14, 8}, 10);
+	public static ArmorMaterial KroostylArmour = EnumHelper.addArmorMaterial("Kroostyl", MainClass.MODID + ":textures/models/armor/KroostylArmour", 66, new int[] {6, 16, 12, 6}, 10);
+	public static ArmorMaterial ReinforcedKroostylArmour = EnumHelper.addArmorMaterial("ReinforcedKroostyl", MainClass.MODID + ":textures/models/armor/ReinforcedKroostylArmour", 264, new int[] {8, 18, 14, 8}, 10);
 	
 	public static void itemRegistry(){
     	initItems();
@@ -132,16 +132,15 @@ public class ItemClass {
 		KroostylSword = new KroostylSwordClass(KroostylMaterial).setUnlocalizedName("KroostylSword");
 			
 		//Armour
-		// TODO: change to correct material after finding a workaround for FML adding Armour Material crash.
-		KroostylHelmet = new KroostylArmour(ArmorMaterial.DIAMOND, helmetID, 0).setUnlocalizedName("KroostylHelmet");
-		KroostylChestplate = new KroostylArmour(ArmorMaterial.DIAMOND, chestplateID, 1).setUnlocalizedName("KroostylChestplate");
-		KroostylLeggings = new KroostylArmour(ArmorMaterial.DIAMOND, leggingsID, 2).setUnlocalizedName("KroostylLeggings");
-		KroostylBoots = new KroostylArmour(ArmorMaterial.DIAMOND, bootsID, 3).setUnlocalizedName("KroostylBoots");
-		
-		ReinforcedKroostylHelmet = new ReinforcedKroostylArmour(ArmorMaterial.DIAMOND, helmetID, 0).setUnlocalizedName("ReinforcedKroostylHelmet");
-		ReinforcedKroostylChestplate = new ReinforcedKroostylArmour(ArmorMaterial.DIAMOND, chestplateID, 1).setUnlocalizedName("ReinforcedKroostylChestplate");
-		ReinforcedKroostylLeggings = new ReinforcedKroostylArmour(ArmorMaterial.DIAMOND, leggingsID, 2).setUnlocalizedName("ReinforcedKroostylLeggings");
-		ReinforcedKroostylBoots = new ReinforcedKroostylArmour(ArmorMaterial.DIAMOND, bootsID, 3).setUnlocalizedName("ReinforcedKroostylBoots");
+		KroostylHelmet = new KroostylArmour(KroostylArmour, helmetID, 0).setUnlocalizedName("KroostylHelmet");
+		KroostylChestplate = new KroostylArmour(KroostylArmour, chestplateID, 1).setUnlocalizedName("KroostylChestplate");
+		KroostylLeggings = new KroostylArmour(KroostylArmour, leggingsID, 2).setUnlocalizedName("KroostylLeggings");
+		KroostylBoots = new KroostylArmour(KroostylArmour, bootsID, 3).setUnlocalizedName("KroostylBoots");
+
+		ReinforcedKroostylHelmet = new ReinforcedKroostylArmour(ReinforcedKroostylArmour, helmetID, 0).setUnlocalizedName("ReinforcedKroostylHelmet");
+		ReinforcedKroostylChestplate = new ReinforcedKroostylArmour(ReinforcedKroostylArmour, chestplateID, 1).setUnlocalizedName("ReinforcedKroostylChestplate");
+		ReinforcedKroostylLeggings = new ReinforcedKroostylArmour(ReinforcedKroostylArmour, leggingsID, 2).setUnlocalizedName("ReinforcedKroostylLeggings");
+		ReinforcedKroostylBoots = new ReinforcedKroostylArmour(ReinforcedKroostylArmour, bootsID, 3).setUnlocalizedName("ReinforcedKroostylBoots");
 		
 		
 		//Records
