@@ -3,7 +3,11 @@ package oodmod.block.trees;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.block.BlockSapling;
+import net.minecraft.block.BlockBush;
+import net.minecraft.block.IGrowable;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyInteger;
+import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -20,13 +24,15 @@ import oodmod.block.BlockClass;
 import oodmod.main.MainClass;
 import oodmod.worldgen.OrangeTreeGenerationClass;
 
-public class SaplingClass extends BlockSapling {
+public class SaplingClass extends BlockBush implements IGrowable {
 
 	  public static final String[] saplings = {"Orange"};
+	  public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
 	 // private static final IIcon[] iconLength = new IIcon[saplings.length];
 
 	  public SaplingClass()
 	  {
+	    this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, 0));
 	    float f = 0.4F;
 	    setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
 	    setCreativeTab(MainClass.OodModTab);
@@ -68,7 +74,7 @@ public class SaplingClass extends BlockSapling {
 	    }
 	  }*/
 
-	  @Override
+	  //@Override
 	//public void func_149878_d(World world, int x, int y, int z, Random random)
 	  public void grow(World world, BlockPos pos, IBlockState state, Random random)
 	  {
@@ -163,4 +169,34 @@ public class SaplingClass extends BlockSapling {
 	    func_149879_c(world, x, y, z, random);
 	  }*/
 	
+	@Override
+    public IBlockState getStateFromMeta(int meta) {
+        return this.getDefaultState().withProperty(STAGE, meta);
+    }
+
+    @Override
+    public int getMetaFromState(IBlockState state) {
+        return ((Integer) state.getValue(STAGE)).intValue();
+    }
+
+	@Override
+	protected BlockState createBlockState() {
+	    return new BlockState(this, new IProperty[] {STAGE});
+	}
+
+    @Override
+    public boolean canGrow(World worldIn, BlockPos pos, IBlockState state, boolean isClient) {
+        return true;
+    }
+
+    @Override
+    public boolean canUseBonemeal(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+        return (double)worldIn.rand.nextFloat() < 0.45D;
+    }
+
+    @Override
+    public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
+        this.grow(worldIn, pos, state, rand);
+    }
+
 }

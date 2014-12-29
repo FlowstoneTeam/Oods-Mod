@@ -9,6 +9,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import oodmod.block.BlockClass;
+import oodmod.block.trees.SaplingClass;
 
 public class OrangeTreeGenerationClass extends WorldGenAbstractTree
 {
@@ -96,7 +97,7 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
       Block block2 = worldIn.getBlockState(pos.down()).getBlock();
 
       //boolean isSoil = block2.canSustainPlant(worldIn, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)BlockClass.Sapling);
-      boolean isSoil = block2.canSustainPlant(worldIn, pos, EnumFacing.UP, (BlockSapling)BlockClass.Sapling);
+      boolean isSoil = block2.canSustainPlant(worldIn, pos, EnumFacing.UP, (SaplingClass)BlockClass.Sapling);
       if ((isSoil) && (par4 < 256 - l - 1))
       {
         //block2.onPlantGrow(worldIn, par3, par4 - 1, par5, par3, par4, par5);
