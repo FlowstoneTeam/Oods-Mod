@@ -127,7 +127,7 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
                 if ((block1.isAir(worldIn, pos1)) || (block1.isLeaves(worldIn, pos1)))
                 {
                   //setBlockAndNotifyAdequately(worldIn, i2, k1, k2, BlockClass.Leaves, this.metaLeaves);
-                  func_175905_a(worldIn, pos1, BlockClass.Leaves, this.metaLeaves);
+                  func_175905_a(worldIn, pos1, this.leaves, this.metaLeaves);
                   
                 }
               }
@@ -145,7 +145,7 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
           if ((block.isAir(worldIn,upPos)) || (block.isLeaves(worldIn,upPos)))
           {
             //setBlockAndNotifyAdequately(worldIn, par3, par4 + k1, par5, BlockClass.Log, this.metaWood);
-            func_175905_a(worldIn, upPos, BlockClass.Leaves, this.metaLeaves);
+            func_175905_a(worldIn, upPos, this.wood, this.metaWood);
 
           }
         }
