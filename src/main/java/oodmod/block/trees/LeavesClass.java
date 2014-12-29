@@ -1,10 +1,11 @@
 package oodmod.block.trees;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockState;
@@ -27,6 +28,7 @@ public class LeavesClass extends BlockLeaves {
 	public static final String[] leaves = new String[] {"Orange"};
 	
 	public LeavesClass() {
+	    this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
 	    this.setCreativeTab(MainClass.OodModTab);
     }
 	
@@ -122,7 +124,7 @@ public class LeavesClass extends BlockLeaves {
 
     @Override
 	public List<ItemStack> onSheared(ItemStack item, IBlockAccess world, BlockPos pos, int fortune) {
-		return new java.util.ArrayList<ItemStack>(java.util.Arrays.asList(new ItemStack(this, 1))); 
+		return new ArrayList<ItemStack>(Arrays.asList(new ItemStack(this, 1))); 
 	}
 
     // Enum for leave types, not needed at the moment

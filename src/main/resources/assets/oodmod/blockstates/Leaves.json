@@ -1,5 +1,9 @@
 {
     "variants": {
-        "normal": { "model": "oodmod:OrangeLeaves" }
+        "normal": { "model": "oodmod:OrangeLeaves" },
+        "check_decay=true,decayable=false": { "model": "oodmod:OrangeLeaves" },
+        "check_decay=false,decayable=true": { "model": "oodmod:OrangeLeaves" },
+        "check_decay=true,decayable=true": { "model": "oodmod:OrangeLeaves" },
+        "check_decay=false,decayable=false": { "model": "oodmod:OrangeLeaves" }
     }
 }
