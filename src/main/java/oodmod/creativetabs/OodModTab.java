@@ -14,5 +14,4 @@ public class OodModTab extends CreativeTabs {
 	public Item getTabIconItem() {
 		return ItemClass.BoiledBroccoli;
 	}
-
 }

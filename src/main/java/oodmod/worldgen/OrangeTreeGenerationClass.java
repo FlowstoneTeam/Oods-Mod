@@ -3,7 +3,6 @@ package oodmod.worldgen;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSapling;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
@@ -71,9 +70,6 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
             if ((i1 >= 0) && (i1 < 256))
             {
             	BlockPos pos1 = new BlockPos(j1,i1,k1);
-              //Block block = worldIn.getBlock(j1, i1, k1);
-            	Block block = worldIn.getBlockState(pos1).getBlock();
-              //if (!isReplaceable(worldIn, j1, i1, k1))
             	if (!isReplaceable(worldIn,pos1))
               {
                 flag = false;
@@ -91,16 +87,12 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
       {
         return false;
       }
-      
 
-      //Block block2 = worldIn.getBlock(par3, par4 - 1, par5);
       Block block2 = worldIn.getBlockState(pos.down()).getBlock();
 
-      //boolean isSoil = block2.canSustainPlant(worldIn, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)BlockClass.Sapling);
       boolean isSoil = block2.canSustainPlant(worldIn, pos, EnumFacing.UP, (SaplingClass)BlockClass.Sapling);
       if ((isSoil) && (par4 < 256 - l - 1))
       {
-        //block2.onPlantGrow(worldIn, par3, par4 - 1, par5, par3, par4, par5);
         block2.onPlantGrow(worldIn, pos.down(), pos);
         byte b0 = 3;
         byte b1 = 0;
@@ -121,13 +113,10 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
               if ((Math.abs(j2) != l1) || (Math.abs(l2) != l1) || ((rand.nextInt(2) != 0) && (i3 != 0)))
               {
             	  BlockPos pos1 = new BlockPos(i2, k1, k2);
-                //Block block1 = worldIn.getBlock(i2, k1, k2);
             	  Block block1 = worldIn.getBlockState(pos1).getBlock();
 
-                //if ((block1.isAir(worldIn, i2, k1, k2)) || (block1.isLeaves(worldIn, i2, k1, k2)))
                 if ((block1.isAir(worldIn, pos1)) || (block1.isLeaves(worldIn, pos1)))
                 {
-                  //setBlockAndNotifyAdequately(worldIn, i2, k1, k2, BlockClass.Leaves, this.metaLeaves);
                   func_175905_a(worldIn, pos1, this.leaves, this.metaLeaves);
                   
                 }
@@ -142,10 +131,8 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
 			BlockPos upPos = pos.up(k1);
           Block block = worldIn.getBlockState(upPos).getBlock();
 
-          //if ((block.isAir(par1World, par3, par4 + k1, par5)) || (block.isLeaves(par1World, par3, par4 + k1, par5)))
           if ((block.isAir(worldIn,upPos)) || (block.isLeaves(worldIn,upPos)))
           {
-            //setBlockAndNotifyAdequately(worldIn, par3, par4 + k1, par5, BlockClass.Log, this.metaWood);
             func_175905_a(worldIn, upPos, this.wood, this.metaWood);
 
           }
@@ -159,5 +146,4 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
 
     return false;
   }
-
 }

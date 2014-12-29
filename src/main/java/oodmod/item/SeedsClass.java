@@ -10,7 +10,6 @@ public class SeedsClass extends ItemSeeds {
 		super(A, B);
 
 		setCreativeTab(MainClass.OodModTab);
-		
 	}
-	
+
 }

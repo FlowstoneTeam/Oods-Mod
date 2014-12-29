@@ -18,7 +18,6 @@ public class KroostylOreClass extends BlockOre {
 		setCreativeTab(MainClass.OodModTab);
 		setHardness(8.0F);
 		setResistance(5.0F);
-		//setBlockTextureName(MainClass.MODID + ":KroostylOre");
 		setStepSound(soundTypeStone);
 		setHarvestLevel("pickaxe", 3);
 		

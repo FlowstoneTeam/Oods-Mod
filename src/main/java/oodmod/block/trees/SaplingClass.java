@@ -28,7 +28,6 @@ public class SaplingClass extends BlockBush implements IGrowable {
 
 	  public static final String[] saplings = {"Orange"};
 	  public static final PropertyInteger STAGE = PropertyInteger.create("stage", 0, 1);
-	 // private static final IIcon[] iconLength = new IIcon[saplings.length];
 
 	  public SaplingClass()
 	  {
@@ -50,32 +49,6 @@ public class SaplingClass extends BlockBush implements IGrowable {
 		}
 	  }
 
-	  // TODO: Remove after transferring logic
-	  /*@Override
-	  @SideOnly(Side.CLIENT)
-	  public IIcon getIcon(int side, int meta)
-	  {
-	    meta &= 7;
-	    return iconLength[MathHelper.clamp_int(meta, 0, 5)];
-	  }*/
-
-	 /* @Override
-	  public void func_149879_c(World world, int x, int y, int z, Random random)
-	  {
-	    int l = world.getBlockMetadata(x, y, z);
-
-	    if ((l & 0x8) == 0)
-	    {
-	      world.setBlockMetadataWithNotify(x, y, z, l | 0x8, 4);
-	    }
-	    else
-	    {
-	      func_149878_d(world, x, y, z, random);
-	    }
-	  }*/
-
-	  //@Override
-	//public void func_149878_d(World world, int x, int y, int z, Random random)
 	  public void grow(World world, BlockPos pos, IBlockState state, Random random)
 	  {
 		if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(world, random, pos)) return;
@@ -84,10 +57,8 @@ public class SaplingClass extends BlockBush implements IGrowable {
 	    int j1 = 0;
 	    boolean flag = false;
 
-	    
 	    object = new OrangeTreeGenerationClass(BlockClass.Log, BlockClass.Leaves, 0, 0, false, 4, 6, false);
 	   
-	    
 	    IBlockState airState = Blocks.air.getDefaultState();
 
 	    if (flag)
@@ -118,57 +89,21 @@ public class SaplingClass extends BlockBush implements IGrowable {
 	    }
 	  }
 
-	  /*@Override
-	  public boolean func_149880_a(World world, int x, int y, int z, int par1)
-	  {
-	    return (world.getBlock(x, y, z) == this) && ((world.getBlockMetadata(x, y, z) & 0x7) == par1);
-	  }*/
-
 	  @Override
 	  public int damageDropped(IBlockState state) {
 		return 0;
 	  }
 
-	  
 	@Override
 	  @SideOnly(Side.CLIENT)
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	  public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		  
+
 		  for (int i = 0; i < saplings.length; i++) {
 				list.add(new ItemStack(item, 1, i));
 		  }
 	  }
 
-	// TODO: Remove after transferring logic
-	 /* @Override
-	  @SideOnly(Side.CLIENT)
-	  public void registerBlockIcons(IIconRegister iconRegister)
-	  {
-	    for (int i = 0; i < iconLength.length; i++)
-	    {
-	      iconLength[i] = iconRegister.registerIcon(MainClass.MODID + ":" + saplings[i] + "Sapling");
-	    }
-	  }*/
-
-	  /*@Override
-	  public boolean func_149851_a(World world, int x, int y, int z, boolean bool)
-	  {
-	    return true;
-	  }*/
-
-	 /* @Override
-	  public boolean func_149852_a(World world, Random random, int x, int y, int z)
-	  {
-	    return world.rand.nextFloat() < 0.45D;
-	  }*/
-
-	  /*@Override
-	  public void func_149853_b(World world, Random random, int x, int y, int z)
-	  {
-	    func_149879_c(world, x, y, z, random);
-	  }*/
-	
 	@Override
     public IBlockState getStateFromMeta(int meta) {
         return this.getDefaultState().withProperty(STAGE, meta);
@@ -198,5 +133,4 @@ public class SaplingClass extends BlockBush implements IGrowable {
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
         this.grow(worldIn, pos, state, rand);
     }
-
 }

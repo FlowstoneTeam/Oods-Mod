@@ -28,20 +28,14 @@ public class RecordClass extends ItemRecord
 	public RecordClass(String recordName)
 	{
 		super(recordName);
-		
+
 		this.recordName = recordName;
 		this.maxStackSize = 1;
-		
+
 		this.setCreativeTab(MainClass.OodModTab);
-		
+
 		records.put(recordName, this);
 	}
-
-	/*@Override
-	public void registerIcons(IIconRegister iconRegister)
-	{
-		itemIcon = iconRegister.registerIcon(MainClass.MODID + ":Record" + recordName);
-	}*/
 
 	@Override
 	public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ)
@@ -67,8 +61,6 @@ public class RecordClass extends ItemRecord
             return false;
         }
     }
-
-
 	
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -93,7 +85,7 @@ public class RecordClass extends ItemRecord
 	{
 		return (RecordClass)records.get(par0Str);
 	}
-	
+
     @Override
     public ResourceLocation getRecordResource(String name)
     {

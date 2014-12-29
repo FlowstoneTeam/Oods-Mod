@@ -7,8 +7,7 @@ import oodmod.main.MainClass;
 public class KroostylStairsClass extends BlockStairs {
 
 	
-	public KroostylStairsClass(Block block, int arg1) {
-		//super(block, arg1);
+	public KroostylStairsClass(Block block) {
 		super(block.getDefaultState());
 
 		setCreativeTab(MainClass.OodModTab);
@@ -16,7 +15,6 @@ public class KroostylStairsClass extends BlockStairs {
 		setResistance(10.0F);
 		setStepSound(soundTypeStone);
 		setHarvestLevel("pickaxe", 3);
-		
 	}
-	
+
 }

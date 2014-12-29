@@ -9,9 +9,5 @@ public class KroostylHoeClass extends ItemHoe {
 		super(material);
 		
 		setCreativeTab(MainClass.OodModTab);
-		// TODO: Remove after transferring logic
-		//setTextureName(MainClass.MODID + ":KroostylHoe");
-		
 	}
-
 }

@@ -7,9 +7,7 @@ public class FruitClass extends ItemFood {
 
 	public FruitClass(int hunger, float saturation, boolean isWolfFood) {
 		super(hunger, saturation, isWolfFood);
-		
-		setCreativeTab(MainClass.OodModTab);
-		
-	}
 
+		setCreativeTab(MainClass.OodModTab);
+	}
 }

@@ -69,21 +69,21 @@ public class BlockClass {
   		GarlicCrop = new GarlicCropClass().setUnlocalizedName("GarlicCrop");
   		
   		//Veg
-  		CompressedBroccoli = new CompressedVegClass().setUnlocalizedName("CompressedBroccoli");//.setBlockTextureName(MainClass.MODID + ":CompressedBroccoli");
-  		CompressedOnion = new CompressedVegClass().setUnlocalizedName("CompressedOnion");//.setBlockTextureName(MainClass.MODID + ":CompressedOnion");
-  		CompressedBeetroot = new CompressedVegClass().setUnlocalizedName("CompressedBeetroot");//.setBlockTextureName(MainClass.MODID + ":CompressedBeetroot");
-  		CompressedCauliflower = new CompressedVegClass().setUnlocalizedName("CompressedCauliflower");//.setBlockTextureName(MainClass.MODID + ":CompressedCauliflower");
-  		CompressedLeek = new CompressedVegClass().setUnlocalizedName("CompressedLeek");//.setBlockTextureName(MainClass.MODID + ":CompressedLeek");
-  		CompressedGarlic = new CompressedVegClass().setUnlocalizedName("CompressedGarlic");//.setBlockTextureName(MainClass.MODID + ":CompressedGarlic");
+  		CompressedBroccoli = new CompressedVegClass().setUnlocalizedName("CompressedBroccoli");
+  		CompressedOnion = new CompressedVegClass().setUnlocalizedName("CompressedOnion");
+  		CompressedBeetroot = new CompressedVegClass().setUnlocalizedName("CompressedBeetroot");
+  		CompressedCauliflower = new CompressedVegClass().setUnlocalizedName("CompressedCauliflower");
+  		CompressedLeek = new CompressedVegClass().setUnlocalizedName("CompressedLeek");
+  		CompressedGarlic = new CompressedVegClass().setUnlocalizedName("CompressedGarlic");
   		
   		//Ores
   		KroostylOre = new KroostylOreClass(Material.rock).setUnlocalizedName("KroostylOre");
   		
   		//Decorative Blocks
-  		KroostylBlock = new KroostylBlocksClass().setUnlocalizedName("KroostylBlock");//.setBlockTextureName(MainClass.MODID + ":KroostylBlock");
-  		KroostylBricks = new KroostylBlocksClass().setUnlocalizedName("KroostylBricks");//.setBlockTextureName(MainClass.MODID + ":KroostylBricks");
-  		KroostylChiseledBricks = new KroostylBlocksClass().setUnlocalizedName("KroostylChiseledBricks");//.setBlockTextureName(MainClass.MODID + ":KroostylChiseledBricks");
-  		KroostylBrickStairs = new KroostylStairsClass(KroostylBricks, 0).setUnlocalizedName("KroostylBrickStairs");
+  		KroostylBlock = new KroostylBlocksClass().setUnlocalizedName("KroostylBlock");
+  		KroostylBricks = new KroostylBlocksClass().setUnlocalizedName("KroostylBricks");
+  		KroostylChiseledBricks = new KroostylBlocksClass().setUnlocalizedName("KroostylChiseledBricks");
+  		KroostylBrickStairs = new KroostylStairsClass(KroostylBricks).setUnlocalizedName("KroostylBrickStairs");
 
   		Plank = new PlankClass().setUnlocalizedName("Plank");
   		

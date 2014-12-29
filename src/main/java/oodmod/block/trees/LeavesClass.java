@@ -14,7 +14,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -26,22 +25,22 @@ public class LeavesClass extends BlockLeaves {
 
 	public static final String[][] leaftypes = new String[][] {{"OrangeLeaves", "OrangeLeavesOpaque"}};
 	public static final String[] leaves = new String[] {"Orange"};
-	
+
 	public LeavesClass() {
 	    this.setDefaultState(this.blockState.getBaseState().withProperty(CHECK_DECAY, true).withProperty(DECAYABLE, true));
 	    this.setCreativeTab(MainClass.OodModTab);
     }
-	
+
 	@Override
 	protected BlockState createBlockState() {
 	    return new BlockState(this, new IProperty[] {CHECK_DECAY, DECAYABLE});
 	}
-	
+
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
 	    return this.getDefaultState().withProperty(DECAYABLE, Boolean.valueOf((meta & 4) == 0)).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
 	}
-	
+
 	@Override
 	public int getMetaFromState(IBlockState state) {
 	    
@@ -59,7 +58,7 @@ public class LeavesClass extends BlockLeaves {
 
         return i;
 	}
-	
+
 	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         return Item.getItemFromBlock(BlockClass.Sapling);
@@ -70,7 +69,7 @@ public class LeavesClass extends BlockLeaves {
 		IBlockState iblockstate = worldIn.getBlockState(pos);
 		return iblockstate.getBlock().getMetaFromState(iblockstate) & 0x3;
 	}
-	
+
 	@Override
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -81,36 +80,6 @@ public class LeavesClass extends BlockLeaves {
 		  }
 	  }
 
-	// TODO: Remove after transferring logic
-	/*@Override
-	  @SideOnly(Side.CLIENT)
-	  public void registerBlockIcons(IIconRegister iconRegister) {
-	    for (int i = 0; i < leaftypes.length; i++) {
-	      this.field_150129_M[i] = new IIcon[leaftypes[i].length];
-
-	      for (int j = 0; j < leaftypes[i].length; j++)
-	        this.field_150129_M[i][j] = iconRegister.registerIcon(MainClass.MODID + ":" + leaftypes[i][j]);
-	    }
-
-		setCreativeTab(MainClass.OodModTab);
-	    
-	  }
-	
-	@Override
-	public IIcon getIcon(int side, int meta) {
-		return (meta & 3) == 1 ? this.field_150129_M[this.field_150127_b][1] : this.field_150129_M[this.field_150127_b][0];
-	}
-
-	@Override
-	public String[] func_150125_e() {
-		return leaves;
-	}
-	
-	@Override
-	public boolean renderAsNormalBlock() {
-		return false;
-	}*/
-	
 	@Override
 	public boolean isOpaqueCube() {
 		return !fancyGraphics;
@@ -119,12 +88,6 @@ public class LeavesClass extends BlockLeaves {
 	@Override
 	public boolean isVisuallyOpaque() {
 	    return false;
-	}
-	
-	@Override
-	public boolean shouldSideBeRendered(IBlockAccess worldIn, BlockPos pos, EnumFacing side) {
-		// TODO Auto-generated method stub
-		return super.shouldSideBeRendered(worldIn, pos, side);
 	}
 
     @Override
@@ -135,7 +98,6 @@ public class LeavesClass extends BlockLeaves {
     // Enum for leave types, not needed at the moment
 	@Override
 	public EnumType getWoodType(int meta) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
