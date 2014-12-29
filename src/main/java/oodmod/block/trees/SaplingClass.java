@@ -38,8 +38,8 @@ public class SaplingClass extends BlockSapling {
 		if (!worldIn.isRemote) {
 			super.updateTick(worldIn, pos, state, rand);
 
-			if (worldIn.getLightFromNeighbors(pos.offsetUp()) >= 9 && rand.nextInt(7) == 0) {
-				this.func_176478_d(worldIn, pos, state, rand);
+			if (worldIn.getLightFromNeighbors(pos.up()) >= 9 && rand.nextInt(7) == 0) {
+				this.grow(worldIn, pos, state, rand);
 			}
 		}
 	  }
@@ -70,7 +70,7 @@ public class SaplingClass extends BlockSapling {
 
 	  @Override
 	//public void func_149878_d(World world, int x, int y, int z, Random random)
-	  public void func_176476_e(World world, BlockPos pos, IBlockState state, Random random)
+	  public void grow(World world, BlockPos pos, IBlockState state, Random random)
 	  {
 		if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(world, random, pos)) return;
 	    Object object = random.nextInt(10) == 0 ? new WorldGenBigTree(true) : new WorldGenTrees(true);

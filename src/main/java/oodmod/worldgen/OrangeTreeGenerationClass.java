@@ -93,14 +93,14 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
       
 
       //Block block2 = worldIn.getBlock(par3, par4 - 1, par5);
-      Block block2 = worldIn.getBlockState(pos.offsetDown()).getBlock();
+      Block block2 = worldIn.getBlockState(pos.down()).getBlock();
 
       //boolean isSoil = block2.canSustainPlant(worldIn, par3, par4 - 1, par5, ForgeDirection.UP, (BlockSapling)BlockClass.Sapling);
       boolean isSoil = block2.canSustainPlant(worldIn, pos, EnumFacing.UP, (BlockSapling)BlockClass.Sapling);
       if ((isSoil) && (par4 < 256 - l - 1))
       {
         //block2.onPlantGrow(worldIn, par3, par4 - 1, par5, par3, par4, par5);
-        block2.onPlantGrow(worldIn, pos.offsetDown(), pos);
+        block2.onPlantGrow(worldIn, pos.down(), pos);
         byte b0 = 3;
         byte b1 = 0;
 
@@ -138,7 +138,7 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
         int k1;
 		for (k1 = 0; k1 < l; k1++)
         {
-			BlockPos upPos = pos.offsetUp(k1);
+			BlockPos upPos = pos.up(k1);
           Block block = worldIn.getBlockState(upPos).getBlock();
 
           //if ((block.isAir(par1World, par3, par4 + k1, par5)) || (block.isLeaves(par1World, par3, par4 + k1, par5)))

@@ -32,12 +32,12 @@ public class LeavesClass extends BlockLeaves {
 	
 	@Override
 	protected BlockState createBlockState() {
-	    return new BlockState(this, new IProperty[] {field_176236_b, field_176237_a});
+	    return new BlockState(this, new IProperty[] {CHECK_DECAY, DECAYABLE});
 	}
 	
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-	    return this.getDefaultState().withProperty(field_176237_a, Boolean.valueOf((meta & 4) == 0)).withProperty(field_176236_b, Boolean.valueOf((meta & 8) > 0));
+	    return this.getDefaultState().withProperty(DECAYABLE, Boolean.valueOf((meta & 4) == 0)).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
 	}
 	
 	@Override
@@ -45,12 +45,12 @@ public class LeavesClass extends BlockLeaves {
 	    
 	    int i = 0;
 
-        if (!((Boolean)state.getValue(field_176237_a)).booleanValue())
+        if (!((Boolean)state.getValue(DECAYABLE)).booleanValue())
         {
             i |= 4;
         }
 
-        if (((Boolean)state.getValue(field_176236_b)).booleanValue())
+        if (((Boolean)state.getValue(CHECK_DECAY)).booleanValue())
         {
             i |= 8;
         }
@@ -127,7 +127,7 @@ public class LeavesClass extends BlockLeaves {
 
     // Enum for leave types, not needed at the moment
 	@Override
-	public EnumType func_176233_b(int p_176233_1_) {
+	public EnumType getWoodType(int meta) {
 		// TODO Auto-generated method stub
 		return null;
 	}

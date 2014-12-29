@@ -19,7 +19,7 @@ public class LogClass extends BlockLog {
 		
 	public LogClass() {
 		setCreativeTab(MainClass.OodModTab);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(AXIS_PROP, BlockLog.EnumAxis.Y));
+		this.setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockLog.EnumAxis.Y));
 	}
 	
 	@Override
@@ -30,16 +30,16 @@ public class LogClass extends BlockLog {
 	    
         switch (axis) {
             case 0:
-                state = state.withProperty(AXIS_PROP, BlockLog.EnumAxis.Y);
+                state = state.withProperty(LOG_AXIS, BlockLog.EnumAxis.Y);
                 break;
             case 1:
-                state = state.withProperty(AXIS_PROP, BlockLog.EnumAxis.X);
+                state = state.withProperty(LOG_AXIS, BlockLog.EnumAxis.X);
                 break;
             case 2:
-                state = state.withProperty(AXIS_PROP, BlockLog.EnumAxis.Z);
+                state = state.withProperty(LOG_AXIS, BlockLog.EnumAxis.Z);
                 break;
             default:
-                state = state.withProperty(AXIS_PROP, BlockLog.EnumAxis.NONE);
+                state = state.withProperty(LOG_AXIS, BlockLog.EnumAxis.NONE);
         }
 	    
 	    
@@ -48,12 +48,12 @@ public class LogClass extends BlockLog {
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
-	    return ((BlockLog.EnumAxis)state.getValue(AXIS_PROP)).ordinal();
+	    return ((BlockLog.EnumAxis)state.getValue(LOG_AXIS)).ordinal();
 	}
 	
 	@Override
 	protected BlockState createBlockState() {
-	    return new BlockState(this, new IProperty[] { AXIS_PROP });
+	    return new BlockState(this, new IProperty[] { LOG_AXIS });
 	}
 	
 	@Override
