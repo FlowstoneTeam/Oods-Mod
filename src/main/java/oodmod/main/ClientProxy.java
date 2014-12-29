@@ -5,6 +5,8 @@ import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import oodmod.block.BlockClass;
@@ -12,6 +14,7 @@ import oodmod.block.trees.LeavesBlockClass;
 import oodmod.block.trees.LogBlockClass;
 import oodmod.block.trees.PlankBlockClass;
 import oodmod.block.trees.SaplingBlockClass;
+import oodmod.event.ClientEventHandler;
 import oodmod.item.ItemClass;
 
 public class ClientProxy extends CommonProxy {
@@ -26,6 +29,13 @@ public class ClientProxy extends CommonProxy {
 	    registerItemModels();
 	}
 	
+	@Override
+	public void registerEvents() {
+	    super.registerEvents();
+
+	    MinecraftForge.EVENT_BUS.register(new ClientEventHandler());
+	}
+
 	private void registerBlockModels(){
 	    
 	    RenderItem renderItem = FMLClientHandler.instance().getClient().getRenderItem();

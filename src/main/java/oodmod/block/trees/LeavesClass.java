@@ -113,7 +113,12 @@ public class LeavesClass extends BlockLeaves {
 	
 	@Override
 	public boolean isOpaqueCube() {
-		return false;
+		return !fancyGraphics;
+	}
+
+	@Override
+	public boolean isVisuallyOpaque() {
+	    return false;
 	}
 	
 	@Override

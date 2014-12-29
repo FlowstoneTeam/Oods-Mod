@@ -87,6 +87,8 @@ public class MainClass {
 		MinecraftForge.addGrassSeed(new ItemStack(ItemClass.LeekSeeds), 1);
 		MinecraftForge.addGrassSeed(new ItemStack(ItemClass.GarlicSeeds), 1);
 		
+		//Event Registering
+		proxy.registerEvents();
 	}
 	
 	@EventHandler
