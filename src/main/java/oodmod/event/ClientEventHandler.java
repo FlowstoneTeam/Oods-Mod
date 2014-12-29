@@ -2,6 +2,7 @@ package oodmod.event;
 
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
+import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -14,7 +15,7 @@ public class ClientEventHandler {
     // Required for changing transparency for leaves.
     @SubscribeEvent
     public void dispatchRenderLast(RenderWorldLastEvent event) {
-        Minecraft mc = Minecraft.getMinecraft();
+        Minecraft mc = FMLClientHandler.instance().getClient();
         if (mc == null || mc.gameSettings == null || BlockClass.Leaves == null) 
             return;
         
