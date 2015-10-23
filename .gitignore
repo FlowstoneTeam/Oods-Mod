@@ -10,7 +10,4 @@
 .classpath
 /.settings
 /.idea
-gradlew
-gradlew.bat
-/gradle
 *.launch
