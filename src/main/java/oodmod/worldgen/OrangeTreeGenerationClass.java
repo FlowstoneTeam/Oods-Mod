@@ -3,6 +3,7 @@ package oodmod.worldgen;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
@@ -15,23 +16,18 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
   private final int minTreeHeight;
   private final int randomTreeHeight;
   
-  private final Block wood;
-  private final Block leaves;
-  
-  private final int metaWood;
-  private final int metaLeaves;
+  private final IBlockState metaWood;
+  private final IBlockState metaLeaves;
 
-  public OrangeTreeGenerationClass(Block wood, Block leaves, int metaWood, int metaLeaves)
+  public OrangeTreeGenerationClass(IBlockState metaWood, IBlockState metaLeaves)
   {
-    this(wood, leaves, metaWood, metaLeaves, false, 4, 3, false);
+    this(metaWood, metaLeaves, false, 4, 3, false);
   }
 
-  public OrangeTreeGenerationClass(Block wood, Block leaves, int metaWood, int metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, boolean vinesGrow)
+  public OrangeTreeGenerationClass(IBlockState metaWood, IBlockState metaLeaves, boolean doBlockNotify, int minTreeHeight, int randomTreeHeight, boolean vinesGrow)
   {
     super(doBlockNotify);
     
-    this.wood = wood;
-    this.leaves = leaves;
     this.minTreeHeight = minTreeHeight;
     this.randomTreeHeight = randomTreeHeight;
     this.metaWood = metaWood;
@@ -117,7 +113,7 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
 
                 if ((block1.isAir(worldIn, pos1)) || (block1.isLeaves(worldIn, pos1)))
                 {
-                  func_175905_a(worldIn, pos1, this.leaves, this.metaLeaves);
+                  setBlockAndNotifyAdequately(worldIn, pos1, this.metaLeaves);
                   
                 }
               }
@@ -133,7 +129,7 @@ public class OrangeTreeGenerationClass extends WorldGenAbstractTree
 
           if ((block.isAir(worldIn,upPos)) || (block.isLeaves(worldIn,upPos)))
           {
-            func_175905_a(worldIn, upPos, this.wood, this.metaWood);
+              setBlockAndNotifyAdequately(worldIn, upPos, this.metaWood);
 
           }
         }

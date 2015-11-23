@@ -57,7 +57,9 @@ public class SaplingClass extends BlockBush implements IGrowable {
 	    int j1 = 0;
 	    boolean flag = false;
 
-	    object = new OrangeTreeGenerationClass(BlockClass.Log, BlockClass.Leaves, 0, 0, false, 4, 6, false);
+	    IBlockState woodState =  BlockClass.Log.getDefaultState();
+	    IBlockState leaveState = BlockClass.Leaves.getDefaultState().withProperty(LeavesClass.CHECK_DECAY, false);
+	    object = new OrangeTreeGenerationClass(woodState, leaveState, false, 4, 6, false);
 	   
 	    IBlockState airState = Blocks.air.getDefaultState();
 

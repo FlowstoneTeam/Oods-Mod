@@ -1,6 +1,23 @@
+// using bleeding edge for 1.8.8, should revert to stable when it's published
+buildscript {
+    repositories {
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.1-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+// Stable
+/*
 plugins {
     id "net.minecraftforge.gradle.forge" version "2.0.1"
-}
+}*/
 
 version = "1.95"
 group= "oodmod" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
